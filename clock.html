@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" >
-<head>
-  <meta charset="UTF-8">
-</head>
-<body>
-
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="clock.css">
+    </head>
+    
+    <body>
+    
     <div>
-        <center>
+        <div class="center"></div>
         <div id="display"></div>
-        </center>
     </div>
+    
+    <!--Body Part-->
     <script>
-function generatetime()
-{
-    var date = new Date();
-    var hour = date.getHours(); 
-    var minute = date.getMinutes(); 
-    var seconds = date.getSeconds(); 
+        function generatetime()
+            {
+                var date = new Date();
+                var hour = date.getHours(); 
+                var minute = date.getMinutes(); 
+                var seconds = date.getSeconds(); 
 
-    var day = "AM";
-    
-    if(hour == 0)
-    {
-        hour = 12;
-    }
-    
-    if(hour >= 12)
-    {
-        hour = hour - 12;
-        day = "PM";
-    }
-    
-    hour = (hour < 10) ? "0" + hour : hour;
-    minute = (minute < 10) ? "0" + minute : minute;
-    seconds = (seconds < 10) ? "0" + seconds : seconds;
-    
-    var time = hour + ":" + minute + ":" + seconds + " " + day;
-    document.getElementById("display").innerHTML = time;
-}    
-    generatetime();
-    setInterval(generatetime, 1000);
+                var day = "AM";
+                
+                if(hour == 0)
+                {
+                    hour = 12;
+                }
+                
+                if(hour >= 12)
+                {
+                    hour = hour - 12;
+                    day = "PM";
+                }
+                
+                hour = (hour < 10) ? "0" + hour : hour;
+                minute = (minute < 10) ? "0" + minute : minute;
+                seconds = (seconds < 10) ? "0" + seconds : seconds;
+                
+                var time = hour + ":" + minute + ":" + seconds + " " + day;
+                document.getElementById("display").innerHTML = time;
+            }    
+        generatetime();
+        setInterval(generatetime, 1000);
 
-</script>
+    </script>
   
 </body>
    
