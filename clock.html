@@ -4,20 +4,13 @@
   <meta charset="UTF-8">
 </head>
 <body>
-    <h1>live clock</h1>
+
     <div>
-    <button onclick="generatetime();"> launch </button>
-        <br>
-        <br>
         <center>
         <div id="display"></div>
         </center>
     </div>
-  
-</body>
-   
-</html>
-<script>
+    <script>
 function generatetime()
 {
     var date = new Date();
@@ -44,7 +37,12 @@ function generatetime()
     
     var time = hour + ":" + minute + ":" + seconds + " " + day;
     document.getElementById("display").innerHTML = time;
-    
-    setInterval(generatetime, 2000);
-}
+}    
+    generatetime();
+    setInterval(generatetime, 1000);
+
 </script>
+  
+</body>
+   
+</html>
