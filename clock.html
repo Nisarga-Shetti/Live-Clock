@@ -7,45 +7,73 @@
     
     <body>
     
-    <div>
-        <div class="center"></div>
-        <div id="display"></div>
-    </div>
+        <div class="clock">
+
+            <div class="number number12"><span>12</span></div>
+            <div class="number number1"><span>1</span></div>
+            <div class="number number2"><span>2</span></div>
+            <div class="number number3"><span>3</span></div>
+            <div class="number number4"><span>4</span></div>
+            <div class="number number5"><span>5</span></div>
+            <div class="number number6"><span>6</span></div>
+            <div class="number number7"><span>7</span></div>
+            <div class="number number8"><span>8</span></div>
+            <div class="number number9"><span>9</span></div>
+            <div class="number number10"><span>10</span></div>
+            <div class="number number11"><span>11</span></div>
+
+
+            <div class="hand hour" id="hour"></div>
+            <div class="hand minute" id="minute"></div>
+            <div class="hand second" id="second"></div>
+
+            <div class="center"></div>
+
+            <div id="display"></div>
+        </div>
     
-    <!--Body Part-->
-    <script>
-        function generatetime()
-            {
-                var date = new Date();
-                var hour = date.getHours(); 
-                var minute = date.getMinutes(); 
-                var seconds = date.getSeconds(); 
-
-                var day = "AM";
-                
-                if(hour == 0)
+        <!--Body Part-->
+        <script>
+            function generatetime()
                 {
-                    hour = 12;
-                }
-                
-                if(hour >= 12)
-                {
-                    hour = hour - 12;
-                    day = "PM";
-                }
-                
-                hour = (hour < 10) ? "0" + hour : hour;
-                minute = (minute < 10) ? "0" + minute : minute;
-                seconds = (seconds < 10) ? "0" + seconds : seconds;
-                
-                var time = hour + ":" + minute + ":" + seconds + " " + day;
-                document.getElementById("display").innerHTML = time;
-            }    
-        generatetime();
-        setInterval(generatetime, 1000);
+                    var date = new Date();
+                    var hour = date.getHours(); 
+                    var minute = date.getMinutes(); 
+                    var second = date.getSeconds(); 
 
-    </script>
-  
-</body>
-   
+                    //Analog Clock
+                    document.getElementById("hour").style.transform=
+                        `translateX(-50%) rotate(${(hour % 12) * 30 + minute * 0.5}deg)`;
+                    
+                    document.getElementById("minute").style.transform=
+                        `translateX(-50%) rotate(${minute * 6 + second * 0.1}deg)`;
+                
+                    document.getElementById("second").style.transform=
+                        `translateX(-50%) rotate(${second * 6}deg)`;
+                    
+                    var day = "AM";
+                    
+                    if(hour >= 12)
+                    {
+                        hour = hour-12;
+                        day = "PM"
+                    }
+                    
+                    if(hour == 0)
+                    {
+                        hour = 12;
+                    }
+                    
+                    hour = (hour < 10) ? "0" + hour : hour;
+                    minute = (minute < 10) ? "0" + minute : minute;
+                    seconds = (second < 10) ? "0" + second : second;
+                    
+                    var time = hour + ":" + minute + ":" + second + " " + day;
+                    document.getElementById("display").innerHTML = time;
+                }    
+            generatetime();
+            setInterval(generatetime, 1000);
+
+        </script>
+    </body>
 </html>
