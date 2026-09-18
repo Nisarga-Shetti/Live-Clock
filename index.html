@@ -3,26 +3,67 @@
     <head>
         <meta charset="UTF-8">
         <title>Clock</title>
+
+        <!--Style Part-->
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            /*Body CSS*/
+            body{
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background: linear-gradient(135deg,#141e30,#243b55);
+            }
+
+            /*Heading CSS*/
+            h1{
+                color: white;
+                margin-bottom: 30px;
+                font-size: 40px;
+                justify-content: center;
+                letter-spacing: 10px;
+            }
+
+            .clock{
+                width: 350px;
+                height: 350px;
+                border-radius: 50%;
+                background-color: lightgrey;
+                border: 8px solid black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
     </head>
 
     <!--Body Part-->
     <body>
-        <h1>Live CLock</h1>
+        <h1>Live Clock</h1>
 
         <div class="clock">
-            
+    
             <div class="clock-box1">
                 <button onclick="openClock()">Launch</button>
             </div>
         
         </div>
 
-        <!--Script Part-->
+    </body>
+
+    <!--Script Part-->
         <script>
             <!--Calling openClock-->
             function openClock(){
                 window.open("clock.html","_blank");
             }
         </script>
-    </body>
 </html>
