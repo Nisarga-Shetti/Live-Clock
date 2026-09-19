@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!--Character encoding-->
         <meta charset="UTF-8">
+
+        <!--Browser title-->
         <title>Clock</title>
 
         <!--Style Part-->
         <style>
+            /*Reset default spacing*/
             *{
                 margin: 0;
                 padding: 0;
@@ -13,7 +17,7 @@
                 font-family: Arial, Helvetica, sans-serif;
             }
 
-            /*Body CSS*/
+            /*Center page content*/
             body{
                 height: 100vh;
                 display: flex;
@@ -23,7 +27,7 @@
                 background: linear-gradient(135deg,#141e30,#243b55);
             }
 
-            /*Heading CSS*/
+            /*Heading style*/
             h1{
                 color: white;
                 margin-bottom: 30px;
@@ -32,6 +36,7 @@
                 text-shadow: 0 0 15px cyan;
             }
 
+            /*Outer clock circle*/
             .clock{
                 width: 350px;
                 height: 350px;
@@ -46,6 +51,7 @@
                 position: relative;
             }
 
+            /*Inner clock circle*/
             .clock-box1{
                 width: 250px;
                 height: 250px;
@@ -58,10 +64,12 @@
                             inset 0 0 20px rgba(0,255,255,0.4);
             }
 
+            /*Clock hover effect*/
             .clock:hover{
                 transform: scale(1.03);
             }
 
+            /*Launch button*/
             button{
                 padding: 15px 35px;
                 font-size: 20px;
@@ -75,6 +83,7 @@
                 box-shadow: 0 0 15px #00c6ff;
             }
 
+            /*Button hover effect*/
             button:hover{
                 transform: scale(1.08);
                 background: linear-gradient(45deg,#00e5ff,#0066ff);
@@ -86,23 +95,27 @@
 
     <!--Body Part-->
     <body>
+        <!--Clock heading -->
         <h1>Live Clock</h1>
 
+        <!--Clock Container-->
         <div class="clock">
     
+            <!--Inner circle-->
             <div class="clock-box1">
+                <!--Opens the clock page-->
                 <button onclick="openClock()">Launch</button>
             </div>
         
         </div>
 
-    </body>
-
-    <!--Script Part-->
+        <!--Script Part-->
         <script>
-            <!--Calling openClock-->
+            //Opens clock.html in a new tab
             function openClock(){
                 window.open("clock.html","_blank");
             }
         </script>
+    </body>
 </html>
+

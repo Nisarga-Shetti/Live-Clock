@@ -2,11 +2,13 @@
 <html lang="en" >
     <head>
         <meta charset="UTF-8">
+        <!--Connect css file-->
         <link rel="stylesheet" href="clock.css">
     </head>
     
     <body>
     
+        <!--Main clock-->
         <div class="clock">
 
             <div class="number number12"><span>12</span></div>
@@ -22,42 +24,56 @@
             <div class="number number10"><span>10</span></div>
             <div class="number number11"><span>11</span></div>
 
-
+            <!--Clock hands-->
             <div class="hand hour" id="hour"></div>
             <div class="hand minute" id="minute"></div>
             <div class="hand second" id="second"></div>
 
+            <!--Center point-->
             <div class="center"></div>
 
+            <!--Digital time-->
             <div id="display"></div>
             
+            <!--Current date-->
             <div id="date"></div>
         </div>
     
-        <!--Body Part-->
+        <!--Script part-->
         <script>
+            //updates the clock
             function generatetime()
                 {
+                    //Get current date and time
                     var date = new Date();
+
+                    //Get hour,minute and second
                     var hour = date.getHours(); 
                     var minute = date.getMinutes(); 
                     var second = date.getSeconds(); 
 
                     //Analog Clock
+                    //Move hour hand
                     document.getElementById("hour").style.transform=
                         `translateX(-50%) rotate(${(hour % 12) * 30 + minute * 0.5}deg)`;
                     
+                    //Move minute hand
                     document.getElementById("minute").style.transform=
                         `translateX(-50%) rotate(${minute * 6 + second * 0.1}deg)`;
                 
+                    //Move second hand
                     document.getElementById("second").style.transform=
                         `translateX(-50%) rotate(${second * 6}deg)`;
 
+                    //Days and months
                     const days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
                     const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
-                    document.getElementById("date").innerHTML=`${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+                    //Display current date
+                    document.getElementById("date").innerHTML=
+                        `${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
                     
+                    //Set AM or PM
                     var day = "AM";
                     
                     if(hour >= 12)
@@ -66,21 +82,29 @@
                         day = "PM"
                     }
                     
+                    //Convert 0 hour to 12
                     if(hour == 0)
                     {
                         hour = 12;
                     }
                     
+                    //Add zero before single digits
                     hour = (hour < 10) ? "0" + hour : hour;
                     minute = (minute < 10) ? "0" + minute : minute;
-                    seconds = (second < 10) ? "0" + second : second;
+                    second = (second < 10) ? "0" + second : second;
                     
+                    //Create digital time
                     var time = hour + ":" + minute + ":" + second + " " + day;
                     document.getElementById("display").innerHTML = time;
                 }    
+
+            //Run clock immediately
             generatetime();
+
+            //Update clock every second
             setInterval(generatetime, 1000);
 
         </script>
     </body>
 </html>
+
