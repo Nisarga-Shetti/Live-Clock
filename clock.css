@@ -24,6 +24,10 @@ body{
     border: 10px solid cyan;
     border-radius: 50%;
     background: rgba(20,20,20,0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px cyan,
+                0 0 30px cyan,
+                inset 0 0 25px rgba(0,255,255,0.3);
 }
 
 /*Number Section*/
@@ -110,7 +114,7 @@ body{
 /*Digital Clock*/
 #display{
     position: absolute;
-    top: 100%;
+    top: 112%;
     left: 50%;
     transform: translateX(-50%);
     color: #00ffff;
@@ -119,4 +123,5 @@ body{
     background: rgba(0,0,0,0.8);
     padding: 10px 25px;
     border-radius: 12px;
+    box-shadow: 0 0 10px cyan;
 }
