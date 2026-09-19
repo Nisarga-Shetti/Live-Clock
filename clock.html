@@ -30,6 +30,8 @@
             <div class="center"></div>
 
             <div id="display"></div>
+            
+            <div id="date"></div>
         </div>
     
         <!--Body Part-->
@@ -50,6 +52,11 @@
                 
                     document.getElementById("second").style.transform=
                         `translateX(-50%) rotate(${second * 6}deg)`;
+
+                    const days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+                    const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+                    document.getElementById("date").innerHTML=`${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
                     
                     var day = "AM";
                     

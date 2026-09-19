@@ -125,3 +125,14 @@ body{
     border-radius: 12px;
     box-shadow: 0 0 10px cyan;
 }
+
+#date{
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 18px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
